@@ -8,7 +8,8 @@ const http         = require('http'),
 let server = http.createServer(function (req, res) {
   let url = req.url;
   if (url == '/') {
-    url += 'index.html';
+    //url += 'index.html';
+      res.end('Hello Node !');
   }
 
   // IMPORTANT: Your application HAS to respond to GET /health with status 200
