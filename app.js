@@ -9,6 +9,25 @@ let server = http.createServer(function (req, res) {
   let url = req.url;
   if (url == '/') {
     //url += 'index.html';
+      var request = require('request');
+      var headers = {
+        'User-Agent':       'Super Agent/0.0.1',
+        'Content-Type':     'application/x-www-form-urlencoded'
+      }
+      var options2 = {
+        url: 'http://preface-prhc.rhcloud.com/pr/getstatusc.php',
+        method: 'GET',
+        json: true,
+        headers: headers,
+        qs: {'uid': '1', 'pcid': 'prhc'}
+      }
+      request(options1, function (error, response, body) {
+          //console.log("req option1");
+        if (!error && response.statusCode == 200) {
+            res.end(body);
+        }
+      }
+
       res.end('Hello Node !');
   }
 
