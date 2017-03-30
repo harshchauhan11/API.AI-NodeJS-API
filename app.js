@@ -80,9 +80,15 @@ app.get('/', function (request, response) {
     });
 });
 
-var server = app.listen(app.get('port'), function() {
-  var port = server.address().port;
-  console.log('Magic happens on port ' + port);
+//server.listen(env.NODE_PORT || 3000, env.NODE_IP || 'localhost', function () {
+//  console.log(`Application worker ${process.pid} started...`);
+//});
+
+
+var server = app.listen(env.NODE_PORT || 3000, env.NODE_IP || 'localhost', function() {
+  //var port = server.address().port;
+  //console.log('Magic happens on port ' + port);
+  console.log(`Application worker ${process.pid} started...`);
 });
 
 /*
